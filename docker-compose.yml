@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  trader:
+    build: .
+    image: crypto-algo-trader:latest
+    container_name: crypto-algo-trader
+    volumes:
+      - ./data:/app/algo_trader/data
+      - ./logs:/app/logs
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: ["python", "-m", "algo_trader.src.main", "--paper"]

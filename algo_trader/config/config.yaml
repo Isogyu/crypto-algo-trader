@@ -1,0 +1,38 @@
+system:
+  timezone: "Asia/Tokyo"
+  paper_mode: true
+
+logging:
+  level: "INFO"
+  format: "json"
+  log_dir: "logs"
+
+exchange:
+  name: "bitflyer"
+  sandbox: true
+  api_key: ""
+  secret: ""
+  symbols:
+    - "ETH/JPY"
+  fee_rate: 0.0012
+  max_leverage: 1
+  min_order_size: 0.001
+
+risk:
+  monthly_loss_cap_jpy: 30000
+  base_risk_per_trade_jpy: 100
+  stop_loss_distance_jpy: 1000
+  warning_threshold_jpy: 15000
+  critical_threshold_jpy: 25000
+
+strategy:
+  symbol: "ETH/JPY"
+  ma_fast: 5
+  ma_slow: 10
+  rsi_period: 7
+  overbought: 70
+  oversold: 30
+  timeframe_seconds: 1
+
+tax:
+  log_path: "data/tax_trade_log.jsonl"
