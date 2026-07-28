@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "algo-trader"
+version = "0.1.0"
+description = "Risk-first algorithmic crypto trading system for JPY markets."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ccxt>=4.2.0",
+    "pydantic>=2.5.0",
+    "pyyaml>=6.0.1",
+    "structlog>=24.1.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0.0"]
+dash = ["streamlit>=1.32.0"]
+
+[project.scripts]
+trader = "algo_trader.src.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["algo_trader*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
